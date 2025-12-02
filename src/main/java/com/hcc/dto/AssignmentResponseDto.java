@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Assignment data transfer object to carry assignment data to spring boot
+ */
 public class AssignmentResponseDto {
     private Assignment assignment;
     private AssignmentEnum[] assignmentEnums = AssignmentEnum.values();

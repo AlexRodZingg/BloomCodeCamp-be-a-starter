@@ -13,7 +13,9 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 
- //uncomment this class once you have created all of the needed parts
+/**
+ * Implements UserDetailService to load User by username from API endpoint.
+ */
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
     @Autowired
@@ -24,10 +26,11 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> userOpt = userRepo.findByUsername(username);
-        User user = userOpt.get();
+
+        User user = userRepo.findByUsername(username)
+                        .orElseThrow(() -> new UsernameNotFoundException("Invalid Credentials"));
         user.setUsername(username);
         user.setPassword(passwordEncoder.getPasswordEncoder().encode("asdfasdf"));
-        return userOpt.orElseThrow(() -> new UsernameNotFoundException("Invalid Credentials"));
+        return user;
     }
 }

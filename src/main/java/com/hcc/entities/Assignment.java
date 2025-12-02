@@ -2,6 +2,10 @@ package com.hcc.entities;
 
 import javax.persistence.*;
 
+/**
+ *
+ * Entity class for assignments
+ */
 @Entity
 @Table(name = "assignments")
 public class Assignment {

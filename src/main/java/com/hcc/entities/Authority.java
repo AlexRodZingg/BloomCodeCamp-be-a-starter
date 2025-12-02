@@ -5,6 +5,9 @@ import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 
+/**
+ * Entity class for authorities
+ */
 @Entity
 @Table(name = "authorities")
 public class Authority implements GrantedAuthority {
@@ -15,7 +18,7 @@ public class Authority implements GrantedAuthority {
     @Column(name = "authority")
     private String authority;
     @ManyToOne
-    private User user; // ? Many to one annotation?
+    private User user;
 
     public Authority() {
     }

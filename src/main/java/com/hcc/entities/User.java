@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Entity class for all users of program
+ */
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {

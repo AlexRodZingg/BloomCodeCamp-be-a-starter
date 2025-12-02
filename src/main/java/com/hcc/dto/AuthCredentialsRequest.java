@@ -1,5 +1,8 @@
 package com.hcc.dto;
 
+/**
+ * Class to store credentials data to make request
+ */
 public class AuthCredentialsRequest {
 
     private String username;

@@ -2,6 +2,9 @@ package com.hcc.enums;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+/**
+ * Defines all states for the backend handling of assignments
+ */
 @JsonFormat
 public enum AssignmentEnum {
     ASSIGNMENT_1(1, "Spring Boot Service"),
