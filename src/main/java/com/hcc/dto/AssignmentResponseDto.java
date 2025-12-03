@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Assignment data transfer object to carry assignment data to spring boot
+ * Assignment data transfer object to carry assignment data to PostgreSQL server
  */
 public class AssignmentResponseDto {
     private Assignment assignment;

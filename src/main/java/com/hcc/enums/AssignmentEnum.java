@@ -3,7 +3,7 @@ package com.hcc.enums;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
- * Defines all states for the backend handling of assignments
+ * Defines all the 14 unique assignments available in the program for learners to complete
  */
 @JsonFormat
 public enum AssignmentEnum {

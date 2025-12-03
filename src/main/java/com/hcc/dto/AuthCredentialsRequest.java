@@ -1,7 +1,7 @@
 package com.hcc.dto;
 
 /**
- * Class to store credentials data to make request
+ * Class used to store login request data: the username and password
  */
 public class AuthCredentialsRequest {
 

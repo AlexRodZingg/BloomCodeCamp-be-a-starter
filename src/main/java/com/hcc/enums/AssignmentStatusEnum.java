@@ -2,7 +2,8 @@ package com.hcc.enums;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
- * Defines all states for User handling of assignments
+ * Defines all states of the assignment from the User perspective: pending submission, submitted, in review, needs update,
+ * completed, and resubmitted
  */
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum AssignmentStatusEnum {
