@@ -18,8 +18,8 @@ import java.util.Optional;
  */
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
-    @Autowired
-    CustomPasswordEncoder passwordEncoder;
+//    @Autowired
+//    CustomPasswordEncoder passwordEncoder;
 
     @Autowired
     UserRepository userRepo;
@@ -29,8 +29,8 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
         User user = userRepo.findByUsername(username)
                         .orElseThrow(() -> new UsernameNotFoundException("Invalid Credentials"));
-        user.setUsername(username);
-        user.setPassword(passwordEncoder.getPasswordEncoder().encode("asdfasdf"));
+//        user.setUsername(username);
+//        user.setPassword(passwordEncoder.getPasswordEncoder().encode("asdfasdf"));
         return user;
     }
 }
