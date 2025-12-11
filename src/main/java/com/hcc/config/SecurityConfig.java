@@ -37,6 +37,11 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
     @Autowired
     jwtFilter jwtFilter;
 
+    @Override @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
@@ -45,7 +50,6 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        super.configure(http);
         http.csrf().disable().cors().disable(); // do not disable this lot here just for now!!
 
         http = http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and();

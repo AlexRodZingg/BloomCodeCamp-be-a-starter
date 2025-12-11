@@ -21,8 +21,6 @@ import java.util.stream.Collectors;
 @Component
 public class JwtUtil implements Serializable {
 
-    //how long is the token valid? a whole day
-    //6000 * 60000 * 24
     public static final long JWT_TOKEN_VALIDITY = 5 * 24 * 60 * 60;
 
     // get the jwt secret from the properties file
@@ -44,7 +42,6 @@ public class JwtUtil implements Serializable {
         return claimsResolver.apply(claims);
     }
 
-    //check if token is expired
     public Date getExpirationDateFromToken(String token){
         return getClaimFromToken(token, Claims::getExpiration);
     }
@@ -55,18 +52,11 @@ public class JwtUtil implements Serializable {
                 .getBody();
     }
 
-
-
     public boolean isTokenExpired(String token){
         final Date expiration = getExpirationDateFromToken(token);
         return expiration.before(new Date());
     }
 
-    //generate token
-//    public String generateToken(User user){
-//        return doGenerateToken(user.getUsername());
-//
-//    }
     public String generateToken(UserDetails userDetails){
         Map<String, Object> claims = new HashMap<>();
         claims.put("authorities", userDetails.getAuthorities()
@@ -79,10 +69,7 @@ public class JwtUtil implements Serializable {
     }
 
     private String doGenerateToken(Map<String, Object> claims, String subject){
-//        Claims claims = Jwts.claims().setSubject(subject);
-//        claims.put("scopes",
-//                Arrays.asList(new SimpleGrantedAuthority("LEARNER_ROLE"),
-//                new SimpleGrantedAuthority("CODE_REVIEWER_ROLE")));
+
         return Jwts.builder()
                 .setClaims(claims)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
@@ -90,8 +77,6 @@ public class JwtUtil implements Serializable {
                 .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
     }
-
-    //validate token
 
     public boolean validateToken(String token, UserDetails userDetails){
         final String username = getUsernameFromToken(token);
