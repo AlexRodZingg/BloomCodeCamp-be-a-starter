@@ -11,6 +11,17 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
+/**
+ * Application startup data loader for initializing user data.
+ *
+ * this component runs automatically when the application starts and
+ * seeds the database with a default user if no users currently exist.
+ * It is intended for development and testing environments to ensure
+ * the application has initial data available.
+ *
+ * The loader is idempotent and will not create duplicate users on
+ * subsequent application restarts.
+ */
 @Component
 public class UserDataLoader implements CommandLineRunner {
     @Autowired

@@ -18,6 +18,17 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+/**
+ * Utility class for generating, parsing, and validating JSON Web Tokens (JWT)
+ *
+ * This class is responsible for:
+ *      Generating JWTs for authenticated users
+ *      Extracting claims such as username, issued date, and expiration
+ *      Validating token integrity, ownership, and expiration
+ *
+ * Tokens are signed using the HMAC SHA-256 algorithm with a secret key
+ * Loaded from application configuration.
+ */
 @Component
 public class JwtUtil implements Serializable {
 

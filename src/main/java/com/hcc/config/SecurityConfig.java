@@ -25,6 +25,15 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Spring Security configuration for the application.
+ *
+ * This class configures authentication and authorization using
+ * JWT-based, stateless security. It integrates a custom
+ * {@link com.hcc.services.UserDetailServiceImpl} for loading users
+ * from the database and a {@link com.hcc.utils.CustomPasswordEncoder}
+ * for secure password hashing.
+ */
 @EnableWebSecurity
 public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 

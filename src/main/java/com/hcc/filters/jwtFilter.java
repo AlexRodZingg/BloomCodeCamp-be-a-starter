@@ -18,9 +18,24 @@ import java.io.IOException;
 import java.util.List;
 
 import org.springframework.http.HttpHeaders;
-
 import static org.springframework.util.ObjectUtils.isEmpty;
 
+/**
+ * This filter checks the {@code Authorization} header for a bearer token of the form:
+ * {@code "Bearer <jwt>"}.
+ * If a token is present, it:
+ * Extracts the JWT from the header
+ * Reads the username from the token
+ * Loads the corresponding {@link org.springframework.security.core.userdetails.UserDetails}
+ *      from the database via {@link UserRepository}
+ * Validates the token using {@link JwtUtil}
+ * If valid, creates an {@link org.springframework.security.authentication.UsernamePasswordAuthenticationToken}
+ *      and stores it in the {@link org.springframework.security.core.context.SecurityContextHolder}
+ *
+ * If the header is missing, does not start with {@code "Bearer "}, or the token is invalid,
+ * the filter does not authenticate the request and simply continues the filter chain.
+ * Protected endpoints will then be rejected by Spring Security with a 401 response.
+ */
 @Component
 public class jwtFilter extends OncePerRequestFilter {
     @Autowired

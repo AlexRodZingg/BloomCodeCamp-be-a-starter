@@ -13,6 +13,22 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+ * REST controller for managing Assignment resources.
+ *
+ * This controller exposes authenticated CRUD endpoints for assignments.
+ * All operations are scoped to the currently authenticated user, which
+ * is automatically injected via {@link org.springframework.security.core.annotation.AuthenticationPrincipal}
+ *
+ * Base path: {@code /api/assignments}
+ *
+ * Supported operations:
+ * Retrieve all assignments for the authenticated user
+ * Retrieve a single assignment by ID
+ * Create a new assignment for the authenticated user
+ * Update an existing assignment
+ * Delete an assignment by ID
+ */
 @RestController
 @RequestMapping("/api/assignments")
 public class AssignmentController {

@@ -14,6 +14,19 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * REST Controller responsible for authentication-related endpoints.
+ *
+ * Provides endpoints to:
+ * Authenticate a user using username/password and issue a JWT
+ * Validate a JWT token
+ *
+ * Base path: {@code /api/auth}
+ *
+ * Authentication is performed via Spring Security's {@link AuthenticationManager}.
+ * On successful login, a JWT is generated using {@link JwtUtil} and returned in the
+ * {@code Authorization} response header.
+ */
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {

@@ -15,6 +15,18 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+ * Service layer for managing {@link Assignment} entities
+ *
+ * This class contains business logic related to assignments, including:
+ *      Retrieving assignments for  a specific user
+ *      Creating new assignments with default values
+ *      Determining the next sequential assignment number per user
+ *      Updating and deleting assignments
+ *
+ * Acts as an intermediary between controllers and the data access layer,
+ * keeping controllers thin and centralizing domain logic.
+ */
 @Service
 public class AssignmentService {
     @Autowired
