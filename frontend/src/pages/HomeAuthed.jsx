@@ -1,27 +1,57 @@
 export default function HomeAuthed() {
+  // Mock data aligned with backend AssignmentEnum and AssignmentStatusEnum
   const mockAssignments = [
-    { id: 1, title: "Sprint 1 - Endpoints", status: "SUBMITTED" },
-    { id: 2, title: "Sprint 2 - Auth", status: "IN_REVIEW" },
-    { id: 3, title: "Sprint 3 - React Client", status: "NEEDS_CHANGES" },
+    {
+      assignmentNumber: 1,
+      assignmentName: "Spring Boot Service",
+      status: "Submitted",
+    },
+    {
+      assignmentNumber: 2,
+      assignmentName: "Spring Boot Data JPA",
+      status: "In Review",
+    },
+    {
+      assignmentNumber: 3,
+      assignmentName: "Spring Boot Postgresql",
+      status: "Needs Update",
+    },
+    {
+      assignmentNumber: 4,
+      assignmentName: "Docker Compose Setup",
+      status: "Completed",
+    },
+    {
+      assignmentNumber: 5,
+      assignmentName: "React Frontend Hooks",
+      status: "Pending Submission",
+    },
   ];
 
   return (
     <div>
       <h1>Home (Authenticated)</h1>
-      <p>(wireframe: Home Page - Authenticated)</p>
+      <p>(wireframe: Home Page – Authenticated)</p>
 
       <h2 style={{ marginTop: 16 }}>Assignments</h2>
+
       <ul>
         {mockAssignments.map((a) => (
-          <li key={a.id}>
-            <strong>{a.title}</strong> — {a.status}
+          <li key={a.assignmentNumber} style={{ marginBottom: 8 }}>
+            <strong>
+              Assignment {a.assignmentNumber}: {a.assignmentName}
+            </strong>{" "}
+            — {a.status}
           </li>
         ))}
       </ul>
 
       <p style={{ marginTop: 16, opacity: 0.8 }}>
-        Note: mock data for Sprint 3. In a real build, this would come from a GET endpoint.
+        Note: This is mock data for Ticket 3. In a full integration, this list
+        would be populated from a backend endpoint and the status values would
+        map directly to AssignmentStatusEnum.
       </p>
     </div>
   );
 }
+
